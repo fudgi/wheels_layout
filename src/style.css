@@ -1,0 +1,91 @@
+body{
+  margin: 0;
+}
+.header-block{
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  font-family: 'Raleway', sans-serif;
+  background: url(./img/bg-image.jpg) 90% 0/cover no-repeat black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  &__header{
+    padding: 5rem;
+  }
+  &__content{
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 0rem 5rem;
+  }
+  &__mouse-logo{
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    width: 3.5rem;
+    height: 3.5rem;
+    background: url('./img/mouse-icon.png') no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &__logo{
+    font-size: 2rem;
+    font-weight: bolder;
+  }
+  &__btn{
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+}
+
+.menu{
+  display: flex;
+  align-items: center;
+  &__burger{
+    margin-left: 10px;
+    width: 30px;
+    height: 5px;
+    background-color: white;
+    position: relative;
+    &::after,  &::before{
+      width: 30px;
+      height: 5px;
+      background-color: white;
+      position: absolute;
+      content: "";
+      display: block;
+    }
+    &::after{
+      top: -10px;
+    }
+    &::before{
+      top: 10px;
+    }
+  }
+}
+
+.content{
+
+  &__title{
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+  }
+  &__text{
+    font-size: 1.6rem;
+    font-weight: 500;
+    text-align: end;
+    &_italic{
+      margin-top: 1rem;
+      font-size: 1.3rem;
+      font-weight: lighter;
+      font-style: italic;
+    }
+  }
+}
