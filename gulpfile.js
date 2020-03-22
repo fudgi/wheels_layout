@@ -1,13 +1,15 @@
 const gulp = require("gulp");
 const postcss = require("gulp-postcss");
 const nested = require("postcss-nested");
+const scss = require("postcss-scss");
+const stripInlineComments = require("postcss-strip-inline-comments");
 const newer = require("gulp-newer");
 const browserSync = require("browser-sync").create();
 
 gulp.task("css", () =>
   gulp
     .src("./src/**/*.css")
-    .pipe(postcss([nested]))
+    .pipe(postcss([nested, stripInlineComments], { syntax: scss }))
     .pipe(gulp.dest("dest"))
 );
 
