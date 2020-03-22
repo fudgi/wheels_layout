@@ -30,7 +30,7 @@ body {
   }
   @media (min-width: 768px) and (min-height: 768px) {
     &__content {
-      padding-top: 30%;
+      padding-top: 20%;
     }
   }
 }
@@ -537,13 +537,9 @@ body {
     display: flex;
     justify-content: flex-start;
   }
-  &__img {
-    width: 20%;
-    height: 40px;
-  }
   &__link {
-    max-width: 100%;
-    height: 40px;
+    width: 20px;
+    height: 20px;
     margin-right: 0.5rem;
     &_1 {
       background: url(./img/facebook.png) center 0 / contain no-repeat;
@@ -556,16 +552,6 @@ body {
     }
     &_4 {
       background: url(./img/twitter.png) center 0 / contain no-repeat;
-    }
-  }
-  @media (min-width: 768px) {
-    &__img {
-      width: 15%;
-      height: 60px;
-    }
-    &__link {
-      max-width: 100%;
-      height: 60px;
     }
   }
 }
