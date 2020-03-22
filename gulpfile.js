@@ -4,12 +4,27 @@ const nested = require("postcss-nested");
 const scss = require("postcss-scss");
 const stripInlineComments = require("postcss-strip-inline-comments");
 const newer = require("gulp-newer");
+const javascriptObfuscator = require("gulp-javascript-obfuscator");
 const browserSync = require("browser-sync").create();
 
 gulp.task("css", () =>
   gulp
     .src("./src/**/*.css")
     .pipe(postcss([nested, stripInlineComments], { syntax: scss }))
+    .pipe(gulp.dest("dest"))
+);
+
+gulp.task("css", () =>
+  gulp
+    .src("./src/**/*.css")
+    .pipe(postcss([nested, stripInlineComments], { syntax: scss }))
+    .pipe(gulp.dest("dest"))
+);
+
+gulp.task("js", () =>
+  gulp
+    .src("./src/**/*.js")
+    .pipe(javascriptObfuscator())
     .pipe(gulp.dest("dest"))
 );
 
@@ -22,10 +37,11 @@ gulp.task("assets", function() {
     .pipe(gulp.dest("dest/img/"));
 });
 
-gulp.task("build", gulp.parallel("css", "html", "assets"));
+gulp.task("build", gulp.parallel("css", "js", "html", "assets"));
 
 gulp.task("watch", () => {
   gulp.watch("./src/*.css", gulp.series("css"));
+  gulp.watch("./src/*.js", gulp.series("js"));
   gulp.watch("./src/img", gulp.series("assets"));
   gulp.watch("./src/*.html", gulp.series("html"));
 });

@@ -13,6 +13,7 @@
   "devDependencies": {
     "browser-sync": "^2.26.7",
     "gulp": "^4.0.2",
+    "gulp-javascript-obfuscator": "^1.1.6",
     "gulp-newer": "^1.4.0",
     "gulp-postcss": "^8.0.0",
     "postcss-nested": "^4.2.1",

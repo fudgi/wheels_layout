@@ -1,6 +1,9 @@
 * {
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   font-family: "Raleway", sans-serif;
@@ -47,6 +50,8 @@ body {
     margin: 3% 0;
   }
   &__btn {
+    color: white;
+    text-decoration: none;
     font-size: 1.6rem;
     font-weight: bold;
   }
@@ -64,11 +69,18 @@ body {
     margin: 3px 0;
     color: grey;
     font-weight: bold;
+    text-decoration: none;
   }
   &_content {
     padding: 2% 5%;
     box-shadow: 0 4px 2px -2px #dad6d6;
     flex-direction: column;
+  }
+  &_sticky {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
   }
 
   @media (min-width: 576px) {
@@ -274,7 +286,7 @@ body {
   &__image {
     width: 100%;
     height: 130px;
-    background: url(./img/bike.png) center 0 / contain no-repeat white;
+    background: url(./img/bike-1.png) center 0 / contain no-repeat white;
   }
   &__name,
   &__price {
@@ -288,27 +300,27 @@ body {
   }
   &_2 {
     .item__image {
-      filter: hue-rotate(68deg) saturate(1.7);
+      background: url(./img/bike-2.png) center 0 / contain no-repeat white;
     }
   }
   &_3 {
     .item__image {
-      filter: hue-rotate(167deg);
+      background: url(./img/bike-3.png) center 0 / contain no-repeat white;
     }
   }
   &_4 {
     .item__image {
-      filter: hue-rotate(-64deg) saturate(3.5);
+      background: url(./img/bike-4.png) center 0 / contain no-repeat white;
     }
   }
   &_5 {
     .item__image {
-      filter: hue-rotate(-133deg) saturate(1.2);
+      background: url(./img/bike-5.png) center 0 / contain no-repeat white;
     }
   }
   &_6 {
     .item__image {
-      filter: saturate(0);
+      background: url(./img/bike-6.png) center 0 / contain no-repeat white;
     }
   }
   @media (min-width: 576px) {
