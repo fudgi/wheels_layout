@@ -2,6 +2,7 @@ const gulp = require("gulp");
 const postcss = require("gulp-postcss");
 const nested = require("postcss-nested");
 const scss = require("postcss-scss");
+const autoprefixer = require("autoprefixer");
 const stripInlineComments = require("postcss-strip-inline-comments");
 const newer = require("gulp-newer");
 const javascriptObfuscator = require("gulp-javascript-obfuscator");
@@ -17,20 +18,19 @@ gulp.task("css", () =>
 gulp.task("css", () =>
   gulp
     .src("./src/**/*.css")
-    .pipe(postcss([nested, stripInlineComments], { syntax: scss }))
+    .pipe(
+      postcss([nested, stripInlineComments, autoprefixer], { syntax: scss })
+    )
     .pipe(gulp.dest("dest"))
 );
 
 gulp.task("js", () =>
-  gulp
-    .src("./src/**/*.js")
-    .pipe(javascriptObfuscator())
-    .pipe(gulp.dest("dest"))
+  gulp.src("./src/**/*.js").pipe(javascriptObfuscator()).pipe(gulp.dest("dest"))
 );
 
 gulp.task("html", () => gulp.src("./src/*.html").pipe(gulp.dest("dest")));
 
-gulp.task("assets", function() {
+gulp.task("assets", function () {
   return gulp
     .src("src/img/**", { since: gulp.lastRun("assets") })
     .pipe(newer("dest"))
@@ -48,7 +48,7 @@ gulp.task("watch", () => {
 
 gulp.task("serve", () => {
   browserSync.init({
-    server: "dest"
+    server: "dest",
   });
   browserSync.watch("dest/**/*.*").on("change", browserSync.reload);
 });
